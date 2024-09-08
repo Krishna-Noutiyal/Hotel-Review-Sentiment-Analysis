@@ -77,6 +77,6 @@ if __name__ == "__main__":
 
     # Call the testing function with appropriate parameters
     # testing(num_samples=len(data), test_features=data, original_data=data, to_html=True)
-    # testing(num_samples=10, test_features=data, original_data=data)
-    # testing(num_samples=len(data), test_features=data, original_data=data, to_html=True)
-    testing(num_samples=12, test_features=data, original_data=data, to_html=True)
+    testing(num_samples=10, test_features=data, original_data=data)
+    # testing(num_samples=len(data), test_features=data, original_data=data)
+    # testing(num_samples=12, test_features=data, original_data=data, to_html=True)
