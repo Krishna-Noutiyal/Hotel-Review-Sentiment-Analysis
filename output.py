@@ -36,8 +36,19 @@ def __output_html(results, filename="results.html"):
         # devides the index by 3 to get the row id for 3 rows
         result["row_id"] = idx // 3  # Assign row_id for grouping in 3 rows
 
+    # Add overall accuracy
+    overall_predicted_rating = round(sum(result['Predicted Rating'] for result in results) / len(results),2)
+    overall_calculated_rating = round(sum(result['Original Rating'] for result in results) / len(results),2)
+    overall_accuracy = round(sum(result["Accuracy"] for result in results) / len(results),2)
+
     # Render the HTML content
-    html_content = template.render(results=results)
+    html_content = template.render(
+        total_reviews= len(results),
+        results=results,
+        overall_accuracy=overall_accuracy,
+        overall_predicted_rating=overall_predicted_rating,
+        overall_calculated_rating=overall_calculated_rating
+    )
 
     # Save to HTML file
     with open(filename, "w", encoding="utf-8") as file:
@@ -51,8 +62,16 @@ def __output_console(results):
     Args:
         results (list of dict): List of result dictionaries to be printed.
     """
-
-    overall_accuracy = sum(result["Accuracy"] for result in results) / len(results)
+    # Add overall accuracy
+    overall_predicted_rating = round(
+        sum(result["Predicted Rating"] for result in results) / len(results), 2
+    )
+    overall_calculated_rating = round(
+        sum(result["Original Rating"] for result in results) / len(results), 2
+    )
+    overall_accuracy = round(
+        sum(result["Accuracy"] for result in results) / len(results), 2
+    )
 
     for result in results:
         print(f"\033[1m{result['Index']}\033[0m")
@@ -66,4 +85,6 @@ def __output_console(results):
 
         print(f"{result['Review']}\n")
 
-    print(f"\n\nOverall Accuracy: \033[1m{overall_accuracy:.2f}%\033[0m\n")
+    print(f"\nPredicted Rating: \033[1m{overall_predicted_rating}%\033[0m\n")
+    print(f"Calcualted Rating: \033[1m{overall_calculated_rating}%\033[0m\n")
+    print(f"\nAccuracy: \033[1m{overall_accuracy}%\033[0m\n")

@@ -85,6 +85,12 @@
                 color: gold;
                 font-size: 1.5em;
             }
+                        #root {
+                margin: 2rem;
+            }
+            .subheading {
+                font-size: 1.2rem;
+            }
         </style>
         <script>
             function toggleContent(rowId) {
@@ -107,17 +113,33 @@
     </head>
 
     <body>
+        <div id="root">
+            <br>
+            <br>
+            <h1>Model Testing Results</h1>
+            <br>
+            <p class="subheading" style="font-size: 1.2rem;"> Total Number of Reviews Analyzed: <span class="orange bold">12</span></p>
+            <p class="subheading"> Predicted Rating : <span class="green bold">3.58 ⭐</span> </p>
+            <p class="subheading"> Calculated Rating : <span class="red bold">3.07 ⭐</span> </p>
+
+            <p class="subheading" style="font-weight: bold; font-size: 1.5rem; "> Accuracy : <span style="font-size: 2rem; color: green;" >78.8%</span></p>
+            
+        </div>
+
         <div class="container">
+
             
             <div class="item" data-row-id="0"> <!-- Adjust for your row logic -->
                 <h3 onclick="toggleContent('0')">
                     Review: 1
                     <span>Lp Villas</span>
-                    <span class="star">3.0714285714285703 ⭐</span>
+                    <span class="star">3.08 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Villas</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Villas located in Dehradun :
 
@@ -133,11 +155,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('0')">
                     Review: 2
                     <span>Clarion Hotel</span>
-                    <span class="star">4.357142857142858 ⭐</span>
+                    <span class="star">4.42 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Clarion Hotel</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Clarion Hotel located in Dehradun:
 
@@ -153,11 +177,13 @@ I would recommend this hotel to friends and family for a pleasant stay.
                 <h3 onclick="toggleContent('0')">
                     Review: 3
                     <span>Pacific Hotel</span>
-                    <span class="star">3.1428571428571423 ⭐</span>
+                    <span class="star">3.15 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Pacific Hotel</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Pacific Hotel located in Dehradun :
 
@@ -173,11 +199,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('1')">
                     Review: 4
                     <span>L.P Vilas Dehradun </span>
-                    <span class="star">5.000000000000001 ⭐</span>
+                    <span class="star">5.0 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">L.P Vilas Dehradun </span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for L.P Vilas Dehradun  located in Dehradun :
 
@@ -193,11 +221,13 @@ I would recommend this hotel to friends and family for a pleasant stay.
                 <h3 onclick="toggleContent('1')">
                     Review: 5
                     <span>Lp Vilas, Dehradun </span>
-                    <span class="star">4.142857142857143 ⭐</span>
+                    <span class="star">4.15 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas, Dehradun </span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Vilas, Dehradun  located in Dehradun :
 
@@ -213,11 +243,13 @@ I would recommend this hotel to friends and family for a pleasant stay.
                 <h3 onclick="toggleContent('1')">
                     Review: 6
                     <span>Abdulkalam</span>
-                    <span class="star">2.714285714285713 ⭐</span>
+                    <span class="star">2.68 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Abdulkalam</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Abdulkalam located in Uttrakhachal University :
 
@@ -233,11 +265,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('2')">
                     Review: 7
                     <span>Lp Vilas Dehradun</span>
-                    <span class="star">3.1428571428571415 ⭐</span>
+                    <span class="star">3.15 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas Dehradun</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Vilas Dehradun located in Dehradun :
 
@@ -253,11 +287,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('2')">
                     Review: 8
                     <span>Lp Vilash</span>
-                    <span class="star">2.9999999999999987 ⭐</span>
+                    <span class="star">3.01 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilash</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Vilash located in Dehradun :
 
@@ -273,11 +309,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('2')">
                     Review: 9
                     <span>Block G</span>
-                    <span class="star">3.8571428571428563 ⭐</span>
+                    <span class="star">3.84 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Block G</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Block G located in Dehradun :
 
@@ -293,11 +331,13 @@ I would recommend this hotel to friends and family for a pleasant stay.
                 <h3 onclick="toggleContent('3')">
                     Review: 10
                     <span>I</span>
-                    <span class="star">3.857142857142856 ⭐</span>
+                    <span class="star">3.87 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">I</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for I located in Haryana :
 
@@ -313,11 +353,13 @@ I would recommend this hotel to friends and family for a pleasant stay.
                 <h3 onclick="toggleContent('3')">
                     Review: 11
                     <span>Lp Villas</span>
-                    <span class="star">2.642857142857144 ⭐</span>
+                    <span class="star">2.66 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Villas</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Villas located in Dehradun:
 
@@ -333,11 +375,13 @@ I might hesitate to recommend this hotel to friends and family for a pleasant st
                 <h3 onclick="toggleContent('3')">
                     Review: 12
                     <span>Lp Vilas Dehradun </span>
-                    <span class="star">3.928571428571428 ⭐</span>
+                    <span class="star">3.92 ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas Dehradun </span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>Hotel Review for Lp Vilas Dehradun  located in Dehradun :
 

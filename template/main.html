@@ -85,6 +85,12 @@
                 color: gold;
                 font-size: 1.5em;
             }
+                        #root {
+                margin: 2rem;
+            }
+            .subheading {
+                font-size: 1.2rem;
+            }
         </style>
         <script>
             function toggleContent(rowId) {
@@ -107,7 +113,21 @@
     </head>
 
     <body>
+        <div id="root">
+            <br>
+            <br>
+            <h1>Model Testing Results</h1>
+            <br>
+            <p class="subheading" style="font-size: 1.2rem;"> Total Number of Reviews Analyzed: <span class="orange bold">{{total_reviews}}</span></p>
+            <p class="subheading"> Predicted Rating : <span class="green bold">{{overall_predicted_rating}} ⭐</span> </p>
+            <p class="subheading"> Calculated Rating : <span class="red bold">{{overall_calculated_rating}} ⭐</span> </p>
+
+            <p class="subheading" style="font-weight: bold; font-size: 1.5rem; "> Accuracy : <span style="font-size: 2rem; color: green;" >{{overall_accuracy}}%</span></p>
+            
+        </div>
+
         <div class="container">
+
             {% for result in results %}
             <div class="item" data-row-id="{{ loop.index0 // 3 }}"> <!-- Adjust for your row logic -->
                 <h3 onclick="toggleContent('{{ loop.index0 // 3 }}')">
@@ -115,9 +135,11 @@
                     <span>{{ result['Hotel Name'] }}</span>
                     <span class="star">{{ result['Predicted Rating'] }} ⭐</span>
                 </h3>
+
                 <div class="item-content">
                     <p><span class="bold">Hotel Name:</span> <span class="red">{{ result['Hotel Name'] }}</span></p>
-                    <p><span class="bold">Actual Rating:</span> <span class="bold">{{ result['Original Rating'] }} ⭐</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">{{ result['Original Rating'] }}
+                            ⭐</span></p>
                     <p><span class="bold">Review:</span></p>
                     <pre>{{ result['Review'] }}</pre>
                 </div>

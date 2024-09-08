@@ -52,7 +52,7 @@ def testing(num_samples, test_features, original_data, to_html=False, html_filen
                 "Predicted Rating": predicted_rating,
                 "Review": long_review,
                 "Accuracy": accuracy[0],
-                "Original Rating": float(accuracy[1]),
+                "Original Rating": accuracy[1],
             }
         )
 
