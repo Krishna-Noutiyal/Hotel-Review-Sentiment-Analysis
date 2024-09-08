@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Model Testing Results</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f0f8ff;
+                /* Light blue background */
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                margin: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+
+            .item {
+                width: 30%;
+                padding: 1rem;
+                margin-bottom: 20px;
+                border: 1px solid #b0c4de;
+                /* Light steel blue border */
+                border-radius: 8px;
+                background-color: #ffffff;
+                /* White background for cards */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+                overflow: hidden;
+                /* Ensures no content overflows */
+            }
+
+            .item:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                transform: scale(1.02);
+                /* Slight zoom effect */
+            }
+
+            .item h3 {
+                cursor: pointer;
+                margin: 0;
+                font-size: 1.2em;
+                color: #1e90ff;
+                /* Dodger blue */
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #b0c4de;
+            }
+
+            .item-content {
+                display: none;
+                padding-top: 1rem;
+            }
+
+            .item-content pre {
+                margin: 0;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                /* Handle long words */
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .red {
+                color: red;
+            }
+
+            .green {
+                color: green;
+            }
+
+            .orange {
+                color: orange;
+            }
+
+            .star {
+                color: gold;
+                font-size: 1.5em;
+            }
+        </style>
+        <script>
+            function toggleContent(rowId) {
+                // Get all items
+                var items = document.querySelectorAll('.item');
+                items.forEach(function (item) {
+                    // Check if item belongs to the same row
+                    if (item.dataset.rowId === rowId) {
+                        var content = item.querySelector('.item-content');
+                        // Toggle display of content
+                        if (content.style.display === 'block') {
+                            content.style.display = 'none';
+                        } else {
+                            content.style.display = 'block';
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            
+            <div class="item" data-row-id="0"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('0')">
+                    Review: 1
+                    <span>Lp Villas</span>
+                    <span class="star">3.0714285714285703 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Villas</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Villas located in Dehradun :
+
+The hotel has excellent location and accessibility. Service quality was lacking and met expectations. Rooms were not up to standard for a cozy stay. Facilities were below average and met expectations. Food and beverage options were inadequate with a variety of choices. Staff behavior was unremarkable during the stay. Safety and security were a concern throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="0"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('0')">
+                    Review: 2
+                    <span>Clarion Hotel</span>
+                    <span class="star">4.357142857142858 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Clarion Hotel</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Clarion Hotel located in Dehradun:
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were excellent and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were excellent and easily accessible. Wi-Fi service was reliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="0"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('0')">
+                    Review: 3
+                    <span>Pacific Hotel</span>
+                    <span class="star">3.1428571428571423 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Pacific Hotel</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Pacific Hotel located in Dehradun :
+
+The hotel has subpar location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were below average and met expectations. Food and beverage options were inadequate with a variety of choices. Staff behavior was unremarkable during the stay. Safety and security were a concern throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="1"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('1')">
+                    Review: 4
+                    <span>L.P Vilas Dehradun </span>
+                    <span class="star">5.000000000000001 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">L.P Vilas Dehradun </span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for L.P Vilas Dehradun  located in Dehradun :
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were excellent and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were excellent and easily accessible. Wi-Fi service was reliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="1"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('1')">
+                    Review: 5
+                    <span>Lp Vilas, Dehradun </span>
+                    <span class="star">4.142857142857143 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas, Dehradun </span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Vilas, Dehradun  located in Dehradun :
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were excellent and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were excellent and easily accessible. Wi-Fi service was reliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="1"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('1')">
+                    Review: 6
+                    <span>Abdulkalam</span>
+                    <span class="star">2.714285714285713 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Abdulkalam</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Abdulkalam located in Uttrakhachal University :
+
+The hotel has subpar location and accessibility. Service quality was lacking and met expectations. Rooms were not up to standard for a cozy stay. Facilities were below average and met expectations. Food and beverage options were inadequate with a variety of choices. Staff behavior was unremarkable during the stay. Safety and security were a concern throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='red' > <b> Overall, the sentiment is negative. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="2"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('2')">
+                    Review: 7
+                    <span>Lp Vilas Dehradun</span>
+                    <span class="star">3.1428571428571415 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas Dehradun</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Vilas Dehradun located in Dehradun :
+
+The hotel has subpar location and accessibility. Service quality was top-notch and met expectations. Rooms were not up to standard for a cozy stay. Facilities were below average and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were a concern throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="2"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('2')">
+                    Review: 8
+                    <span>Lp Vilash</span>
+                    <span class="star">2.9999999999999987 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilash</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Vilash located in Dehradun :
+
+The hotel has subpar location and accessibility. Service quality was lacking and met expectations. Rooms were not up to standard for a cozy stay. Facilities were below average and met expectations. Food and beverage options were inadequate with a variety of choices. Staff behavior was unremarkable during the stay. Safety and security were a concern throughout the hotel. The fitness center was lacking and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="2"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('2')">
+                    Review: 9
+                    <span>Block G</span>
+                    <span class="star">3.8571428571428563 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Block G</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Block G located in Dehradun :
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were not up to standard for a cozy stay. Facilities were below average and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was reliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="3"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('3')">
+                    Review: 10
+                    <span>I</span>
+                    <span class="star">3.857142857142856 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">I</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for I located in Haryana :
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were not up to standard for a cozy stay. Facilities were excellent and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="3"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('3')">
+                    Review: 11
+                    <span>Lp Villas</span>
+                    <span class="star">2.642857142857144 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Villas</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Villas located in Dehradun:
+
+The hotel has subpar location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were below average and met expectations. Food and beverage options were inadequate with a variety of choices. Staff behavior was unremarkable during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was insufficient for international guests. Transport facilities were poor and easily accessible. Wi-Fi service was reliable and met expectations. Entertainment facilities were lacking and added value to the stay. Overall, the value for money was not satisfactory compared to other options in the area. 
+
+I might hesitate to recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+            <div class="item" data-row-id="3"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('3')">
+                    Review: 12
+                    <span>Lp Vilas Dehradun </span>
+                    <span class="star">3.928571428571428 ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">Lp Vilas Dehradun </span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">3.07 ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>Hotel Review for Lp Vilas Dehradun  located in Dehradun :
+
+The hotel has excellent location and accessibility. Service quality was top-notch and met expectations. Rooms were comfortable and clean for a cozy stay. Facilities were excellent and met expectations. Food and beverage options were great with a variety of choices. Staff behavior was friendly and professional during the stay. Safety and security were well maintained throughout the hotel. The fitness center was well-equipped and as expected. Staff's foreign language knowledge was sufficient for international guests. Transport facilities were excellent and easily accessible. Wi-Fi service was unreliable and met expectations. Entertainment facilities were enjoyable and added value to the stay. Overall, the value for money was excellent compared to other options in the area. 
+
+I would recommend this hotel to friends and family for a pleasant stay.
+
+<p class='green' > <b> Overall, the sentiment is positive. </b> </p></pre>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+
+</html>

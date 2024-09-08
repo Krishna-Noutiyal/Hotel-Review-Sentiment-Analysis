@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Model Testing Results</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f0f8ff;
+                /* Light blue background */
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                margin: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+
+            .item {
+                width: 30%;
+                padding: 1rem;
+                margin-bottom: 20px;
+                border: 1px solid #b0c4de;
+                /* Light steel blue border */
+                border-radius: 8px;
+                background-color: #ffffff;
+                /* White background for cards */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+                overflow: hidden;
+                /* Ensures no content overflows */
+            }
+
+            .item:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                transform: scale(1.02);
+                /* Slight zoom effect */
+            }
+
+            .item h3 {
+                cursor: pointer;
+                margin: 0;
+                font-size: 1.2em;
+                color: #1e90ff;
+                /* Dodger blue */
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #b0c4de;
+            }
+
+            .item-content {
+                display: none;
+                padding-top: 1rem;
+            }
+
+            .item-content pre {
+                margin: 0;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                /* Handle long words */
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .red {
+                color: red;
+            }
+
+            .green {
+                color: green;
+            }
+
+            .orange {
+                color: orange;
+            }
+
+            .star {
+                color: gold;
+                font-size: 1.5em;
+            }
+        </style>
+        <script>
+            function toggleContent(rowId) {
+                // Get all items
+                var items = document.querySelectorAll('.item');
+                items.forEach(function (item) {
+                    // Check if item belongs to the same row
+                    if (item.dataset.rowId === rowId) {
+                        var content = item.querySelector('.item-content');
+                        // Toggle display of content
+                        if (content.style.display === 'block') {
+                            content.style.display = 'none';
+                        } else {
+                            content.style.display = 'block';
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            {% for result in results %}
+            <div class="item" data-row-id="{{ loop.index0 // 3 }}"> <!-- Adjust for your row logic -->
+                <h3 onclick="toggleContent('{{ loop.index0 // 3 }}')">
+                    Review: {{ loop.index0 + 1 }}
+                    <span>{{ result['Hotel Name'] }}</span>
+                    <span class="star">{{ result['Predicted Rating'] }} ⭐</span>
+                </h3>
+                <div class="item-content">
+                    <p><span class="bold">Hotel Name:</span> <span class="red">{{ result['Hotel Name'] }}</span></p>
+                    <p><span class="bold">Actual Rating:</span> <span class="bold">{{ result['Original Rating'] }} ⭐</span></p>
+                    <p><span class="bold">Review:</span></p>
+                    <pre>{{ result['Review'] }}</pre>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+from jinja2 import Template, Environment, FileSystemLoader
+import os
+
+
+def save_or_print_results(results, to_html=False, html_filename="results.html"):
+    """
+    Saves the results to an HTML file or prints them to the console based on the given option.
+
+    Args:
+        results (list of dict): List of result dictionaries to be included.
+        to_html (bool): If True, save the results to an HTML file. Otherwise, print to the console.
+        html_filename (str): The name of the file to save the results.
+    """
+    if to_html:
+        __output_html(results, filename=html_filename)
+        print(f"Results saved to {html_filename}")
+    else:
+        __output_console(results)
+
+
+def __output_html(results, filename="results.html"):
+    """
+    Saves the results to an HTML file with toggle folding and formatting.
+
+    Args:
+        results (list of dict): List of result dictionaries to be included in the HTML file.
+        filename (str): The name of the file to save the results.
+    """
+    # Set up Jinja2 environment and load the template
+    file_loader = FileSystemLoader("./template")  # Template directory
+    env = Environment(loader=file_loader)
+    template = env.get_template("main.html")
+
+    # Prepare results with row_id
+    for idx, result in enumerate(results):
+        # devides the index by 3 to get the row id for 3 rows
+        result["row_id"] = idx // 3  # Assign row_id for grouping in 3 rows
+
+    # Render the HTML content
+    html_content = template.render(results=results)
+
+    # Save to HTML file
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(html_content)
+
+
+def __output_console(results):
+    """
+    Prints the results to the console.
+
+    Args:
+        results (list of dict): List of result dictionaries to be printed.
+    """
+
+    overall_accuracy = sum(result["Accuracy"] for result in results) / len(results)
+
+    for result in results:
+        print(f"\033[1m{result['Index']}\033[0m")
+        print(f"\n\033[31;1m{result['Hotel Name']}\033[0m : ")
+        print(
+            f"Predicted Overall Rating: \033[1m{result['Predicted Rating']} ⭐\033[0m")
+
+        print(f"\033[1mActual Rating : {result['Original Rating']}\033[0m ⭐")
+
+        print(f"\033[1;37mAccuracy:\033[0m \033[32m{result['Accuracy']:.2f}%\033[0m")
+
+        print(f"{result['Review']}\n")
+
+    print(f"\n\nOverall Accuracy: \033[1m{overall_accuracy:.2f}%\033[0m\n")
