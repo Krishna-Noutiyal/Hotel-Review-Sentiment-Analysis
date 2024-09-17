@@ -2,20 +2,34 @@ import pandas as pd
 import processing, filtering, predict, review, output, analytics
 
 
-def testing(num_samples, test_features, original_data, to_html=False, html_filename="results.html"):
+def testing(
+    num_samples,
+    test_features,
+    original_data,
+    modal_name="linear_regressor_v01",
+    to_html=False,
+    html_filename="results.html",
+):
     """
     Tests the trained model using the specified number of samples from the test set.
 
-    Args:
+    Args :
+
         num_samples (int): Number of samples to test from the test set.
+
         test_features (pd.DataFrame): DataFrame containing the feature columns for the test set.
+
         original_data (pd.DataFrame): The original data DataFrame used for extracting full sample data.
+
+        modal_name (str): The name of the trained model stored in the Models folder. (default: 'linear_regressor_v01').
+
         to_html (bool): If True, save the results to an HTML file. Otherwise, print to the console.
+
         html_filename (str): The name of the file to save the results.
     """
 
     # Load the model and feature columns from file
-    model, feature_columns = predict.load_model("linerrg")
+    model, feature_columns = predict.load_model("./Models/" + modal_name)
 
     results = []
 
@@ -39,10 +53,10 @@ def testing(num_samples, test_features, original_data, to_html=False, html_filen
 
         if to_html:
             # Generate a review
-            long_review = review.long_review(full_sample_data.to_dict(),True)
+            long_review = review.long_review(full_sample_data.to_dict(), True)
         else:
             # Generate a review
-            long_review = review.long_review(full_sample_data.to_dict(),False)
+            long_review = review.long_review(full_sample_data.to_dict(), False)
 
         # Collect the results in a list of dictionaries
         results.append(
@@ -56,18 +70,19 @@ def testing(num_samples, test_features, original_data, to_html=False, html_filen
             }
         )
 
+    filename = html_filename if html_filename != "results.html" else modal_name+"_result.html"
     # Save or print the results
-    output.save_or_print_results(results, to_html=to_html, html_filename=html_filename)
+    output.save_or_print_results(results, to_html=to_html, html_filename=filename)
 
 
 if __name__ == "__main__":
     print("\n\033[1mTesting the model\033[0m\n")
 
     # Load the testing data
-    data = pd.read_csv("testing.csv", encoding="ISO-8859-1")
+    data = pd.read_csv("./Data/testing.csv", encoding="ISO-8859-1")
 
     # Load the trained model
-    model, feature_columns = predict.load_model("linerrg")
+    # model, feature_columns = predict.load_model("linerrg")
 
     # Step 1: Filter the data
     data = filtering.filter_data(data)
@@ -76,7 +91,8 @@ if __name__ == "__main__":
     data = processing.map_rating(data)
 
     # Call the testing function with appropriate parameters
-    # testing(num_samples=len(data), test_features=data, original_data=data, to_html=True)
+    # testing(num_samples=len(data), test_features=data, original_data=data, modal_name="render_forest_v01", to_html=True)
+    testing(num_samples=len(data), test_features=data, original_data=data, modal_name="render_forest_v02", to_html=True)
     # testing(num_samples=1, test_features=data, original_data=data)
-    testing(num_samples=len(data), test_features=data, original_data=data)
+    # testing(num_samples=len(data), test_features=data, original_data=data)
     # testing(num_samples=12, test_features=data, original_data=data, to_html=True)

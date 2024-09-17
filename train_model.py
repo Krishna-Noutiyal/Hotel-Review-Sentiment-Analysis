@@ -1,10 +1,10 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
-import review, processing, filtering, predict, testing
-import joblib
+import processing, filtering
 
 # ANSI escape codes
 RESET = "\033[0m"
@@ -15,9 +15,14 @@ CYAN = "\033[36m"
 MAGENTA = "\033[35m"
 RED = "\033[31m"
 
+
+# Model Name
+# MODEL_NAME = "linear_regressor_v02"
+MODEL_NAME = "render_forest_v02"
+
 # Step 1: Load the dataset
 print(f"{CYAN}{BOLD}Loading dataset from csv file{RESET}")
-data = pd.read_csv("dataset.csv", encoding="ISO-8859-1")
+data = pd.read_csv("./Data/dataset.csv", encoding="ISO-8859-1")
 
 # Step 2: Filtering the data
 print(f"{YELLOW}{BOLD}Filtering data{RESET}")
@@ -34,7 +39,9 @@ print(f"{MAGENTA}{BOLD}Calculating overall rating{RESET}")
 # Learn those columns that doesn't have an int value
 numeric_columns = data.select_dtypes(include=[int]).columns
 # Create another column Overall Rating in the data
-data["Overall Rating"] = data[numeric_columns].apply(lambda x: x.mean(skipna=True), axis=1)
+data["Overall Rating"] = data[numeric_columns].apply(
+    lambda x: x.mean(skipna=True), axis=1
+)
 
 # Step 5: Creating Features and Target Variable
 print(f"{CYAN}{BOLD}Creating Features and Target Variable{RESET}")
@@ -57,15 +64,15 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Step 7: Train the model
 print(f"{GREEN}{BOLD}Training the model{RESET}")
-model = LinearRegression()
-# model = RandomForestRegressor(n_estimators=100000, random_state=1000)
+# model = LinearRegression()
+model = RandomForestRegressor(n_estimators=20000, random_state=100)
 model.fit(X_train, y_train)
 
 # Step 8: Storing the model for future use, and saving the feature names used for training
 print(f"{MAGENTA}{BOLD}Saving the model and feature names{RESET}")
-joblib.dump(model, "linerrg")
+joblib.dump(model, "./Models/" + MODEL_NAME)
 joblib.dump(
-    X_train.columns, "features.pkl"
+    X_train.columns, "./Models/" + MODEL_NAME + "_features.pkl"
 )  # Save the feature columns used during training
 
 # Step 9: Model Evaluation
@@ -73,4 +80,3 @@ joblib.dump(
 # y_pred = model.predict(X_test)
 # mse = mean_squared_error(y_test, y_pred)
 # print(f"{RED}{BOLD}Mean Squared Error: {mse}{RESET}")
-

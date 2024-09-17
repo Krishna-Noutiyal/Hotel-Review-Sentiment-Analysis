@@ -27,7 +27,7 @@ def __output_html(results, filename="results.html"):
         filename (str): The name of the file to save the results.
     """
     # Set up Jinja2 environment and load the template
-    file_loader = FileSystemLoader("./template")  # Template directory
+    file_loader = FileSystemLoader("./Template")  # Template directory
     env = Environment(loader=file_loader)
     template = env.get_template("main.html")
 
@@ -51,7 +51,7 @@ def __output_html(results, filename="results.html"):
     )
 
     # Save to HTML file
-    with open(filename, "w", encoding="utf-8") as file:
+    with open("./Output/" + filename, "w", encoding="utf-8") as file:
         file.write(html_content)
 
 
