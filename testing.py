@@ -35,7 +35,7 @@ def testing(num_samples, test_features, original_data, to_html=False, html_filen
         )
 
         # calcualting the Accuracy
-        accuracy = analytics.accuracy(test_features, predicted_rating)
+        accuracy = analytics.accuracy(sample_features, predicted_rating)
 
         if to_html:
             # Generate a review
@@ -77,6 +77,6 @@ if __name__ == "__main__":
 
     # Call the testing function with appropriate parameters
     # testing(num_samples=len(data), test_features=data, original_data=data, to_html=True)
-    testing(num_samples=10, test_features=data, original_data=data)
-    # testing(num_samples=len(data), test_features=data, original_data=data)
+    # testing(num_samples=1, test_features=data, original_data=data)
+    testing(num_samples=len(data), test_features=data, original_data=data)
     # testing(num_samples=12, test_features=data, original_data=data, to_html=True)
