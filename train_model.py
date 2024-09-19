@@ -22,7 +22,7 @@ MODEL_NAME = "render_forest_v02"
 
 # Step 1: Load the dataset
 print(f"{CYAN}{BOLD}Loading dataset from csv file{RESET}")
-data = pd.read_csv("./Data/dataset.csv", encoding="ISO-8859-1")
+data = pd.read_csv("./data/dataset.csv", encoding="ISO-8859-1")
 
 # Step 2: Filtering the data
 print(f"{YELLOW}{BOLD}Filtering data{RESET}")
@@ -70,9 +70,9 @@ model.fit(X_train, y_train)
 
 # Step 8: Storing the model for future use, and saving the feature names used for training
 print(f"{MAGENTA}{BOLD}Saving the model and feature names{RESET}")
-joblib.dump(model, "./Models/" + MODEL_NAME)
+joblib.dump(model, "./models/" + MODEL_NAME)
 joblib.dump(
-    X_train.columns, "./Models/" + MODEL_NAME + "_features.pkl"
+    X_train.columns, "./models/" + MODEL_NAME + "_features.pkl"
 )  # Save the feature columns used during training
 
 # Step 9: Model Evaluation

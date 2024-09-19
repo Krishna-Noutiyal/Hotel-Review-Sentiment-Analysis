@@ -29,7 +29,7 @@ def testing(
     """
 
     # Load the model and feature columns from file
-    model, feature_columns = predict.load_model("./Models/" + modal_name)
+    model, feature_columns = predict.load_model("./models/" + modal_name)
 
     results = []
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print("\n\033[1mTesting the model\033[0m\n")
 
     # Load the testing data
-    data = pd.read_csv("./Data/testing.csv", encoding="ISO-8859-1")
+    data = pd.read_csv("./data/testing.csv", encoding="ISO-8859-1")
 
     # Load the trained model
     # model, feature_columns = predict.load_model("linerrg")
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
     # Call the testing function with appropriate parameters
     # testing(num_samples=len(data), test_features=data, original_data=data, modal_name="render_forest_v01", to_html=True)
-    testing(num_samples=len(data), test_features=data, original_data=data, modal_name="render_forest_v02", to_html=True)
+    testing(num_samples=len(data), test_features=data, original_data=data, modal_name="linear_regressor_v01", to_html=True, html_filename="randome_test101.html")
     # testing(num_samples=1, test_features=data, original_data=data)
     # testing(num_samples=len(data), test_features=data, original_data=data)
     # testing(num_samples=12, test_features=data, original_data=data, to_html=True)
