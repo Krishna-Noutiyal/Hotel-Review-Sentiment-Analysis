@@ -5,7 +5,35 @@ Welcome to the **Hotel Review Sentiment Analysis** repository! This project invo
 
 This repository is structured to support ease of understanding, scalability, and modularity. It includes datasets, trained models, and a Jinja2-based visualization application.
 
----
+<p align="center">
+   <img src="./assets/accuracy.jpeg">
+</p>
+
+
+**Models trained have an astonising accuracy of around 99% 🤯**
+
+> ### See these models getting implemented in real world at : [Rate My Hotel](https://github.com/Krishna-Noutiyal/RateMyHotel)
+
+Automatic Data Visualization
+--
+
+Now, you can get insight on the performance your trained model with **Automatic Data Visualization** with zero efforts.
+
+![Visualization of trained model](./assets/model_testing_results.jpeg)
+
+Detailed Review Generation
+--
+
+Other then just training hotel review models, you also get an automatic detailed review generation and user sentiment analysis to further support the model rating.
+
+![Detailed Review Generation](./assets/detailed_review.jpeg)
+
+Beautiful Model Training Interface
+--
+
+Forget boring training screens with a colorful terminal output 😆
+
+![Training Model](./assets/training_model.png)
 
 ## 📂 Repository Structure
 
@@ -33,7 +61,7 @@ This repository is structured to support ease of understanding, scalability, and
 - **`reviews.py`**: Generates detailed reviews (long or short) based on predictions.  
 - **`output.py`**: Saves or displays the output of the model predictions.  
 - **`testing.py`**: Facilitates model testing and evaluation.  
-- **`training.py`**: Contains code for training the ML models and saving them for later use.  
+- **`train_model.py`**: Contains code for training the ML models and saving them for later use.  
 
 ---
 
@@ -60,10 +88,10 @@ This repository is structured to support ease of understanding, scalability, and
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.8+
-- Libraries: Install dependencies from `requirements.txt`:
+- Python 3.11+
+- Libraries: Install dependencies from `req.txt`:
   ```bash
-  pip install -r requirements.txt
+  pip install -r req.txt
   ```
 
 ### Running the Project
@@ -77,7 +105,7 @@ This repository is structured to support ease of understanding, scalability, and
 1. Place your dataset in the `data` folder.  
 2. Train your model using:
    ```bash
-   python training.py
+   python train_model.py
    ```
 3. Test the model with:
    ```bash
