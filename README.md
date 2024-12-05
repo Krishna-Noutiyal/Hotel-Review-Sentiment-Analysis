@@ -1,6 +1,3 @@
-Here’s a well-structured **README.md** draft for your repository:
-
----
 
 # Hotel Review Sentiment Analysis
 
