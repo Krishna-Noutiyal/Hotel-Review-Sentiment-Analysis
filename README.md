@@ -79,7 +79,6 @@ Forget boring training screens with a colorful terminal output 😆
 - **Scikit-Learn**: For machine learning model development.
 - **Jinja2**: For templating HTML visualizations.
 - **Pandas & NumPy**: For data handling and processing.
-- **Matplotlib**: For additional data visualization (if needed).
 - **Joblib**: For saving and loading trained models.
 - **Textblob**: For sentiment analysis
 
