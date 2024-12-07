@@ -134,9 +134,3 @@ Feel free to submit issues or pull requests! Contributions are welcome to improv
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).  
-
----
-
-Let me know if you need further adjustments or additional sections! 😊
